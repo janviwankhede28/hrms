@@ -1,0 +1,37 @@
+.dashboard-container {
+    background-color: #f7f9fc;
+    min-height: 100vh;
+  
+  }
+  
+  .greeting {
+    font-weight: bold;
+  }
+  
+  .quote {
+    font-style: italic;
+    color: #666;
+  }
+  
+  .card-box {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: 100%;
+  }
+  
+  .card-box h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .card-box p {
+    color: #444;
+  }
+  
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
