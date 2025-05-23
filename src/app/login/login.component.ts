@@ -27,6 +27,7 @@ export class LoginComponent {
     this.auth.login(credentials).subscribe({
       next: (res: any) => {
         this.auth.setToken(res.token);
+        localStorage.setItem('user', JSON.stringify(res.user));
         this.message = '';
         // Redirect user based on role in token
         const role = this.auth.getRoleFromToken();

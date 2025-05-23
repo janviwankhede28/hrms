@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,14 +12,23 @@ export class NavbarComponent implements OnInit {
   role: string = '';
   username: string = 'User';
 
-  ngOnInit() {
-    const userData = JSON.parse(localStorage.getItem('user') || '{}');
-    this.role = userData?.role || '';
-    this.username = userData?.name || 'User';
-  }
+ constructor(private router: Router) {} 
 
-  logout() {
-    localStorage.clear();
-    // Navigate to login
+ngOnInit() {
+  if (typeof window !== 'undefined') {
+    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+    this.role = userData?.role || 'Role';
+    this.username = userData?.name || 'User';
+    console.log(userData.role);
   }
+}
+
+
+logout() {
+  if (typeof window !== 'undefined') {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+}
+
 }

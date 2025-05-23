@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
   <div class="container-fluid">
-    <a class="navbar-brand fw-bold" routerLink="/">HRMS</a>
-    
+     <div class="mb-4">
+        <img src="https://static.vecteezy.com/system/resources/previews/047/656/219/non_2x/abstract-logo-design-for-any-corporate-brand-business-company-vector.jpg" class="me-1" alt="logo" width="40" />
+        
+        <a class="navbar-brand fw-bold" routerLink="/"><strong>OpenFuture</strong></a>
+      </div>
+
     <button
       class="navbar-toggler"
       type="button"
@@ -16,18 +20,31 @@
 
     <div class="collapse navbar-collapse" id="navbarHRMS">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" *ngIf="role === 'ADMIN'">
-          <a class="nav-link" routerLink="/admin/dashboard">Dashboard</a>
-        </li>
-        <li class="nav-item" *ngIf="role === 'EMPLOYEE'">
-          <a class="nav-link" routerLink="/employee/attendance">My Attendance</a>
-        </li>
-        <li class="nav-item" *ngIf="role === 'HR'">
-          <a class="nav-link" routerLink="/hr/employees">Manage Employees</a>
-        </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/leaves">Leaves</a>
+          @if (role === 'ADMIN') {
+          <a class="nav-link" routerLink="/admin/dashboard">Dashboard</a>
+          }
         </li>
+
+
+  <li class="nav-item">
+          @if (role === 'EMPLOYEE') {
+           <a class="nav-link" routerLink="/employee/attendance">My Attendance</a>
+          }
+        </li>
+
+
+     
+        <li class="nav-item" >
+
+@if(role === 'HR') {
+          <a class="nav-link" routerLink="/hr/employees">Manage Employees</a>
+        }
+      </li>
+
+      
+      
       </ul>
 
       <!-- Right side: Profile Dropdown -->
@@ -44,9 +61,13 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
-            <li><a class="dropdown-item" routerLink="/settings">Settings</a></li>
+            <li>
+              <a class="dropdown-item" routerLink="/settings">Settings</a>
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item text-danger" (click)="logout()">Logout</a></li>
+            <li>
+              <a class="dropdown-item text-danger" (click)="logout()">Logout</a>
+            </li>
           </ul>
         </li>
       </ul>
