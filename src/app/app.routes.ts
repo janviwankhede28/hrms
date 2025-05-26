@@ -35,7 +35,7 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from '../guards/auth.guard';
 
 import { ManagerLayoutComponent } from './layout/manager-layout/manager-layout.component';
 

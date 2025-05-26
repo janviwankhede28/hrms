@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -35,7 +35,7 @@ export class LoginComponent {
         else if (role === 'HR') this.router.navigate(['/dashboard/hr']);
         else if (role === 'MANAGER') this.router.navigate(['/dashboard/manager']);
         else if (role === 'SENIORHR') this.router.navigate(['/dashboard/seniorhr']);
-        else this.router.navigate(['/login']); 
+        else this.router.navigate(['/login']);
       },
       error: (err) => {
         this.message = err.error || 'Login failed';

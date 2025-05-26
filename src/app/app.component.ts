@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { LoginComponent } from './login/login.component';
 
-import { AuthService } from './services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { signal } from '@angular/core';
 @Component({
   selector: 'app-root',
