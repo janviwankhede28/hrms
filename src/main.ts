@@ -1,6 +1,4 @@
 
-
-import { appConfig } from './app/app.config';
 import { FormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
