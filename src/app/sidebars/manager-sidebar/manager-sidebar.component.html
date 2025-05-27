@@ -36,15 +36,37 @@
   <!-- Static Menu -->
   <nav class="menu">
     <ul>
+
       <li>
         <a class="menu-item"
-          routerLink="/home"
+          routerLink="/homes"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">home</i>
           <span class="menu-label" *ngIf="isExpanded()">Home</span>
         </a>
       </li>
+
+      <li>
+        <a class="menu-item"
+          routerLink="/add-employee"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <i class="material-icons">manage_accounts</i>
+          <span class="menu-label" *ngIf="isExpanded()"> Add Employee</span>
+        </a>
+      </li>
+
+      <li>
+        <a class="menu-item"
+          routerLink="/register-user"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <i class="material-icons">group_add</i>
+          <span class="menu-label" *ngIf="isExpanded()">Register User</span>
+        </a>
+      </li>
+
       <li>
         <a class="menu-item" routerLink="/engage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">chat</i>

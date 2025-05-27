@@ -41,6 +41,8 @@ import { ManagerLayoutComponent } from './layout/manager-layout/manager-layout.c
 
 import { HomeComponent } from './pages/home/home.component';
 import { EngageComponent } from './pages/engage/engage.component';
+import { AddEmployeeComponent } from './pages/add-employee/add-employee.component';
+import { RegisterUserComponent } from './pages/register-user/register-user.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -59,8 +61,8 @@ export const routes: Routes = [
       //? Example: Add more sidebar tab routes here
       { path: 'home', component: HomeComponent , canActivate: [AuthGuard],},
       { path: 'engage', component: EngageComponent, canActivate: [AuthGuard], },
-      // { path: 'todo/tasks', component: TasksComponent },
-      // { path: 'todo/reminders', component: RemindersComponent },
+      { path: 'add-employee', component: AddEmployeeComponent,  },
+      { path: 'register-user', component: RegisterUserComponent, canActivate: [AuthGuard], },
     ]
   },
 
