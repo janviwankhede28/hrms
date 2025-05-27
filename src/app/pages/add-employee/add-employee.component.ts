@@ -1,8 +1,7 @@
-// add-employee.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeService } from '../../../services/add-employee.service';
 
 declare var bootstrap: any;
@@ -16,14 +15,19 @@ declare var bootstrap: any;
 })
 export class AddEmployeeComponent implements OnInit {
   employeeForm!: FormGroup;
+  registerForm!: FormGroup;
   employees: any[] = [];
   isEdit = false;
+  selectedEmployeeId: number | null = null;
 
-  constructor(private fb: FormBuilder, private AddEmployeeService: AddEmployeeService) {}
+  constructor(
+    private fb: FormBuilder,
+    private AddEmployeeService: AddEmployeeService
+  ) {}
 
   ngOnInit(): void {
+    // Employee add/edit form
     this.employeeForm = this.fb.group({
-
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -35,6 +39,14 @@ export class AddEmployeeComponent implements OnInit {
       exitDate: [''],
       status: ['Active', Validators.required]
     });
+
+    // Register form
+    this.registerForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      role: ['', Validators.required]
+    });
+
     this.getEmployees();
   }
 
@@ -78,5 +90,34 @@ export class AddEmployeeComponent implements OnInit {
   resetForm() {
     this.employeeForm.reset();
     this.isEdit = false;
+  }
+
+  // ==========================
+  // REGISTER RELATED FUNCTIONS
+  // ==========================
+  openRegisterModal(emp: any) {
+    this.selectedEmployeeId = emp.id;
+    this.registerForm.reset({
+      email: emp.email,
+      password: '',
+      role: emp.role
+    });
+
+    const modal = new bootstrap.Modal(document.getElementById('registerModal')!);
+    modal.show();
+  }
+
+  onRegister() {
+    if (!this.selectedEmployeeId) return;
+
+    const registerData = {
+      ...this.registerForm.value,
+      employeeId: this.selectedEmployeeId
+    };
+
+    this.AddEmployeeService.registerEmployee(registerData).subscribe(() => {
+      alert('Employee registered successfully!');
+      (document.getElementById('closeRegisterModalBtn') as HTMLElement).click();
+    });
   }
 }

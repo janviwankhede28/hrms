@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class AddEmployeeService {
 
   private api = 'http://localhost:8080/api/employees';
+  private api2 = 'http://localhost:8080/Employee/register'; // Use your actual API URL
 
   constructor(private http: HttpClient) {}
 
@@ -39,5 +40,11 @@ export class AddEmployeeService {
   // ✅ Delete employee
   deleteEmployee(id: number): Observable<any> {
     return this.http.delete<any>(`${this.api}/${id}`, { headers: this.getHeaders() });
+  }
+
+
+// registerEmployee
+registerEmployee(employee: any): Observable<any> {
+    return this.http.post<any>(this.api2, employee, { headers: this.getHeaders() });
   }
 }
