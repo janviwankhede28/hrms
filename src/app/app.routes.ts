@@ -42,7 +42,7 @@ import { ManagerLayoutComponent } from './layout/manager-layout/manager-layout.c
 import { HomeComponent } from './pages/home/home.component';
 import { EngageComponent } from './pages/engage/engage.component';
 import { AddEmployeeComponent } from './pages/add-employee/add-employee.component';
-import { RegisterUserComponent } from './pages/register-user/register-user.component';
+import { AllUserComponent } from './pages/all-user/all-user.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -62,7 +62,7 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent , canActivate: [AuthGuard],},
       { path: 'engage', component: EngageComponent, canActivate: [AuthGuard], },
       { path: 'add-employee', component: AddEmployeeComponent,  },
-      { path: 'register-user', component: RegisterUserComponent, canActivate: [AuthGuard], },
+      { path: 'all-user', component: AllUserComponent, canActivate: [AuthGuard], },
     ]
   },
 

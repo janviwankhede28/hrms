@@ -39,7 +39,7 @@
 
       <li>
         <a class="menu-item"
-          routerLink="/homes"
+          routerLink="/home"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">home</i>
@@ -53,17 +53,17 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">manage_accounts</i>
-          <span class="menu-label" *ngIf="isExpanded()"> Add Employee</span>
+          <span class="menu-label" *ngIf="isExpanded()"> Register Employee</span>
         </a>
       </li>
 
       <li>
         <a class="menu-item"
-          routerLink="/register-user"
+          routerLink="/all-user"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">group_add</i>
-          <span class="menu-label" *ngIf="isExpanded()">Register User</span>
+          <span class="menu-label" *ngIf="isExpanded()">All Employee</span>
         </a>
       </li>
 
