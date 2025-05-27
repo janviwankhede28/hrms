@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   role: string = '';
   username: string = 'User';
 
- constructor(private router: Router) {} 
+ constructor(private router: Router) {}
 
 ngOnInit() {
   if (typeof window !== 'undefined') {

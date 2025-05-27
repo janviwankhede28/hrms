@@ -61,7 +61,7 @@ export const routes: Routes = [
       //? Example: Add more sidebar tab routes here
       { path: 'home', component: HomeComponent , canActivate: [AuthGuard],},
       { path: 'engage', component: EngageComponent, canActivate: [AuthGuard], },
-      { path: 'add-employee', component: AddEmployeeComponent,  },
+      { path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard], },
       { path: 'all-user', component: AllUserComponent, canActivate: [AuthGuard], },
     ]
   },
