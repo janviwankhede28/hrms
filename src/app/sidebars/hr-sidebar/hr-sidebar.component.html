@@ -39,7 +39,7 @@
 
       <li>
         <a class="menu-item"
-          routerLink="hr-home"
+          routerLink="/hr-home"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">home</i>
@@ -49,7 +49,7 @@
 
       <li>
         <a class="menu-item"
-          routerLink="/add-employee"
+          routerLink="/hr-add-employee"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">manage_accounts</i>
@@ -59,7 +59,7 @@
 
       <li>
         <a class="menu-item"
-          routerLink="/all-user"
+          routerLink="/hr-all-user"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">group_add</i>
@@ -68,7 +68,7 @@
       </li>
 
       <li>
-        <a class="menu-item" routerLink="/engage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="menu-item" routerLink="/hr-engage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <i class="material-icons">chat</i>
           <span class="menu-label" *ngIf="isExpanded()">Engage</span>
         </a>
