@@ -1,14 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-manager-home',
   standalone: true,
   imports: [],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './manager-home.component.html',
+  styleUrl: './manager-home.component.css'
 })
-
-export class HomeComponent implements OnInit, OnDestroy {
+export class ManagerHomeComponent implements OnInit, OnDestroy {
   
   timeString: string = '';
   private intervalId: any;
