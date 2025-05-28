@@ -15,12 +15,12 @@ export class NavbarComponent implements OnInit {
  constructor(private router: Router) {}
 
 ngOnInit() {
-  if (typeof window !== 'undefined') {
-    const userData = JSON.parse(localStorage.getItem('user') || '{}');
-    this.role = userData?.role || 'Role';
-    this.username = userData?.name || 'User';
-    console.log(userData.role);
-  }
+  // if (typeof window !== 'undefined') {
+  //   const userData = JSON.parse(localStorage.getItem('user') || '{}');
+  //   this.role = userData?.role || 'Role';
+  //   this.username = userData?.name || 'User';
+  //   console.log(userData.role);
+  // }
 }
 
 

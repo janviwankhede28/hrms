@@ -6,7 +6,7 @@ import { NavbarComponent } from "../../navbar/navbar.component";
 @Component({
   selector: 'app-manager-layout',
   standalone: true,
-  imports: [ManagerSidebarComponent, RouterOutlet, NavbarComponent],
+  imports: [ManagerSidebarComponent, RouterOutlet, NavbarComponent, ],
   templateUrl: './manager-layout.component.html',
   styleUrl: './manager-layout.component.css'
 })

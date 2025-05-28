@@ -31,10 +31,10 @@ export class LoginComponent {
         this.message = '';
         // Redirect user based on role in token
         const role = this.auth.getRoleFromToken();
-        if (role === 'USER') this.router.navigate(['/dashboard/user']);
-        else if (role === 'HR') this.router.navigate(['/dashboard/hr']);
-        else if (role === 'MANAGER') this.router.navigate(['/dashboard/manager']);
-        else if (role === 'SENIORHR') this.router.navigate(['/dashboard/seniorhr']);
+        if (role === 'USER') this.router.navigate(['user-home']);
+        else if (role === 'HR') this.router.navigate(['hr-home']);
+        else if (role === 'MANAGER') this.router.navigate(['manager-home']);
+        else if (role === 'SENIORHR') this.router.navigate(['senior-hr-home']);
         else this.router.navigate(['/login']);
       },
       error: (err) => {

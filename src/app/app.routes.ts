@@ -39,10 +39,16 @@ import { AuthGuard } from '../guards/auth.guard';
 
 import { ManagerLayoutComponent } from './layout/manager-layout/manager-layout.component';
 
-import { HomeComponent } from './pages/home/home.component';
 import { EngageComponent } from './pages/engage/engage.component';
 import { AddEmployeeComponent } from './pages/add-employee/add-employee.component';
 import { AllUserComponent } from './pages/all-user/all-user.component';
+import { UserLayoutComponent } from './layout/user-layout/user-layout.component';
+import { HrLayoutComponent } from './layout/hr-layout/hr-layout.component';
+import { SeniorHrLayoutComponent } from './layout/senior-hr-layout/senior-hr-layout.component';
+import { ManagerHomeComponent } from './pages/manager-home/manager-home.component';
+import { SeniorHrHomeComponent } from './pages/senior-hr-home/senior-hr-home.component';
+import { HrHomeComponent } from './pages/hr-home/hr-home.component';
+import { UserHomeComponent } from './pages/user-home/user-home.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -51,18 +57,52 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
 
   // 🔐 Dashboard routes with AuthGuard
-  // { path: 'dashboard/user', component: UserDashboardComponent, canActivate: [AuthGuard], data: { role: 'USER' } },
-  // { path: 'dashboard/hr', component: HrDashboardComponent, canActivate: [AuthGuard], data: { role: 'HR' } },
-     { path: 'dashboard/manager', component: ManagerLayoutComponent, canActivate: [AuthGuard], data: { role: 'MANAGER' } },
-  // { path: 'dashboard/seniorhr', component: SeniorhrDashboardComponent, canActivate: [AuthGuard], data: { role: 'SENIORHR' } },
+  { path: 'dashboard/manager', component: ManagerLayoutComponent, canActivate: [AuthGuard], data: { role: 'MANAGER' } },
+  { path: 'dashboard/seniorhr', component: SeniorHrLayoutComponent, canActivate: [AuthGuard], data: { role: 'SENIORHR' } },
+  { path: 'dashboard/hr', component: HrLayoutComponent, canActivate: [AuthGuard], data: { role: 'HR' } },
+  { path: 'dashboard/user', component: UserLayoutComponent, canActivate: [AuthGuard], data: { role: 'USER' } },
 
-     //! 📌 Layout Route for Sidebar + Tabs
-    { path: '', component: ManagerLayoutComponent, children: [
+     //! 📌 Manager Layout Route for Sidebar + Tabs
+
+  { path: '', component: ManagerLayoutComponent, children:
+    [
       //? Example: Add more sidebar tab routes here
-      { path: 'home', component: HomeComponent , canActivate: [AuthGuard],},
-      { path: 'engage', component: EngageComponent, canActivate: [AuthGuard], },
-      { path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard], },
-      { path: 'all-user', component: AllUserComponent, canActivate: [AuthGuard], },
+     { path: 'manager-home', component: ManagerHomeComponent , canActivate: [AuthGuard],},
+     { path: 'engage', component: EngageComponent, canActivate: [AuthGuard], },
+     { path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard], },
+     { path: 'all-user', component: AllUserComponent, canActivate: [AuthGuard], },
+    ]
+  },
+
+     //! 📌 Senior-Hr Layout Route for Sidebar + Tabs
+
+  { path: '', component: SeniorHrLayoutComponent, children:
+    [
+      //? Example: Add more sidebar tab routes here
+     { path: 'senior-hr-home', component: SeniorHrHomeComponent , canActivate: [AuthGuard],},
+     { path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard], },
+     { path: 'all-user', component: AllUserComponent, canActivate: [AuthGuard], },
+     { path: 'engage', component: EngageComponent, canActivate: [AuthGuard], },
+    ]
+  },
+
+  { path: '', component: HrLayoutComponent, children:
+    [
+      //? Example: Add more sidebar tab routes here
+     { path: 'hr-home', component: HrHomeComponent , canActivate: [AuthGuard],},
+     { path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard], },
+     { path: 'all-user', component: AllUserComponent, canActivate: [AuthGuard], },
+     { path: 'engage', component: EngageComponent, canActivate: [AuthGuard], },
+    ]
+  },
+
+  { path: '', component: UserLayoutComponent, children:
+    [
+      //? Example: Add more sidebar tab routes here
+     { path: 'user-home', component: UserHomeComponent , canActivate: [AuthGuard],},
+    //  { path: 'engage', component: EngageComponent, canActivate: [AuthGuard], },
+    //  { path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard], },
+    //  { path: 'all-user', component: AllUserComponent, canActivate: [AuthGuard], },
     ]
   },
 
