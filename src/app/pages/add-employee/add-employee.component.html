@@ -46,8 +46,12 @@
         </div>
         <div class="modal-body row g-3">
 
+           <!-- <div class="col-md-6">
+            <label>id</label>
+            <input formControlName="id" class="form-control" />
+          </div> -->
 
-           <div class="col-md-6">
+          <div class="col-md-6">
             <label>First Name</label>
             <input formControlName="firstName" class="form-control" />
           </div>
@@ -97,6 +101,16 @@
             <label>Exit Date</label>
             <input type="date" class="form-control" formControlName="exitDate" />
           </div>
+
+
+          <div class="col-md-6">
+            <label>Profile Picture</label>
+            <!-- <input formControlName="firstName" class="form-control" /> -->
+            <input type="file" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg" />
+
+          </div>
+
+
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">{{ isEdit ? 'Update' : 'Add' }}</button>

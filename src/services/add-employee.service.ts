@@ -1,50 +1,59 @@
 
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AddEmployeeService {
-
-  private api = 'http://localhost:8080/api/employees';
-  private api2 = 'http://localhost:8080/Employee/register'; // Use your actual API URL
+  private apiUrl = 'http://localhost:8080/api/employees';
+  private apiUrl2 = 'http://localhost:8080/Employee/register';
 
   constructor(private http: HttpClient) {}
 
-  // ✅ Common method to get headers with JWT
-  private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token'); // Ya jahan bhi aap token store kar rahe ho
-    return new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+  // ✅ Get JWT headers
+  private getHeaders(contentType: string = ''): HttpHeaders {
+    const token = localStorage.getItem('token') || '';
+    const headersConfig: any = { Authorization: `Bearer ${token}` };
+
+    if (contentType) {
+      headersConfig['Content-Type'] = contentType;
+    }
+
+    return new HttpHeaders(headersConfig);
+  }
+
+  //! ✅ Get all employees
+  getEmployees(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl, { headers: this.getHeaders() });
+  }
+  //! ✅ Add new employee
+  addEmployeeWithImage(formData: FormData): Observable<any> {
+    return this.http.post(this.apiUrl, formData, {
+      headers: this.getHeaders(''), // 👈 No Content-Type
     });
   }
 
-  // ✅ Get all employees
-  getEmployees(): Observable<any[]> {
-    return this.http.get<any[]>(this.api, { headers: this.getHeaders() });
-  }
-
-  // ✅ Add new employee
-  addEmployee(employee: any): Observable<any> {
-    return this.http.post<any>(this.api, employee, { headers: this.getHeaders() });
-  }
-
-  // ✅ Update employee
-  updateEmployee(id: number, employee: any): Observable<any> {
-    return this.http.put<any>(`${this.api}/${id}`, employee, { headers: this.getHeaders() });
+  //! ✅ Update employee
+  updateEmployeeWithImage(id: number, formData: FormData): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, formData, {
+      headers: this.getHeaders(''), // 👈 No Content-Type
+    });
   }
 
   // ✅ Delete employee
   deleteEmployee(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.api}/${id}`, { headers: this.getHeaders() });
+    return this.http.delete(`${this.apiUrl}/${id}`, {
+      headers: this.getHeaders(),
+    });
   }
 
-
-// registerEmployee
-registerEmployee(employee: any): Observable<any> {
-    return this.http.post<any>(this.api2, employee, { headers: this.getHeaders() });
+  // ✅ Register employee
+  registerEmployee(employee: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl2, employee, {
+      headers: this.getHeaders(),
+    });
   }
 }

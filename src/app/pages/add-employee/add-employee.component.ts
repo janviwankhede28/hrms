@@ -19,14 +19,14 @@ export class AddEmployeeComponent implements OnInit {
   employees: any[] = [];
   isEdit = false;
   selectedEmployeeId: number | null = null;
+  selectedImage: File | null = null;
 
   constructor(
     private fb: FormBuilder,
-    private AddEmployeeService: AddEmployeeService
+    private addEmployeeService: AddEmployeeService
   ) {}
 
   ngOnInit(): void {
-    // Employee add/edit form
     this.employeeForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -40,7 +40,6 @@ export class AddEmployeeComponent implements OnInit {
       status: ['Active', Validators.required]
     });
 
-    // Register form
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -51,37 +50,53 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   getEmployees() {
-    this.AddEmployeeService.getEmployees().subscribe(res => {
+    this.addEmployeeService.getEmployees().subscribe(res => {
       this.employees = res;
     });
   }
 
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedImage = file;
+    }
+  }
+
   onSubmit() {
-    const data = this.employeeForm.value;
-    if (this.isEdit) {
-      this.AddEmployeeService.updateEmployee(data.id, data).subscribe(() => {
+    const formData = new FormData();
+    const employeeData = { ...this.employeeForm.value };
+
+    formData.append('employeeData', JSON.stringify(employeeData));
+    if (this.selectedImage) {
+      formData.append('image', this.selectedImage);
+    }
+
+    if (this.isEdit && this.selectedEmployeeId) {
+      this.addEmployeeService.updateEmployeeWithImage(this.selectedEmployeeId, formData).subscribe(() => {
         this.getEmployees();
         this.resetForm();
       });
     } else {
-      this.AddEmployeeService.addEmployee(data).subscribe(() => {
+      this.addEmployeeService.addEmployeeWithImage(formData).subscribe(() => {
         this.getEmployees();
         this.resetForm();
       });
     }
+
     (document.getElementById('closeModalBtn') as HTMLElement).click();
   }
 
   edit(emp: any) {
     this.employeeForm.patchValue(emp);
     this.isEdit = true;
+    this.selectedEmployeeId = emp.id;
     const modal = new bootstrap.Modal(document.getElementById('employeeModal')!);
     modal.show();
   }
 
   delete(id: number) {
     if (confirm('Are you sure you want to delete?')) {
-      this.AddEmployeeService.deleteEmployee(id).subscribe(() => {
+      this.addEmployeeService.deleteEmployee(id).subscribe(() => {
         this.getEmployees();
       });
     }
@@ -90,11 +105,10 @@ export class AddEmployeeComponent implements OnInit {
   resetForm() {
     this.employeeForm.reset();
     this.isEdit = false;
+    this.selectedEmployeeId = null;
+    this.selectedImage = null;
   }
 
-  // ==========================
-  // REGISTER RELATED FUNCTIONS
-  // ==========================
   openRegisterModal(emp: any) {
     this.selectedEmployeeId = emp.id;
     this.registerForm.reset({
@@ -115,7 +129,7 @@ export class AddEmployeeComponent implements OnInit {
       employeeId: this.selectedEmployeeId
     };
 
-    this.AddEmployeeService.registerEmployee(registerData).subscribe(() => {
+    this.addEmployeeService.registerEmployee(registerData).subscribe(() => {
       alert('Employee registered successfully!');
       (document.getElementById('closeRegisterModalBtn') as HTMLElement).click();
     });
