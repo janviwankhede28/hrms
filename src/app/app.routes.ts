@@ -49,6 +49,7 @@ import { ManagerHomeComponent } from './pages/manager-home/manager-home.componen
 import { SeniorHrHomeComponent } from './pages/senior-hr-home/senior-hr-home.component';
 import { HrHomeComponent } from './pages/hr-home/hr-home.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { SalarySummaryComponent } from './pages/salary-summary/salary-summary.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -71,6 +72,7 @@ export const routes: Routes = [
      { path: 'manager-engage', component: EngageComponent, canActivate: [AuthGuard], },
      { path: 'manager-add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard], },
      { path: 'manager-all-user', component: AllUserComponent, canActivate: [AuthGuard], },
+    
     ]
   },
 
@@ -102,7 +104,7 @@ export const routes: Routes = [
     [
       //? Example: Add more sidebar tab routes here
      { path: 'user-home', component: UserHomeComponent , canActivate: [AuthGuard],},
-    //  { path: 'user-engage', component: EngageComponent, canActivate: [AuthGuard], },
+     { path: 'salary', component: SalarySummaryComponent, canActivate: [AuthGuard], },
     //  { path: 'user-add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard], },
     //  { path: 'user-all-user', component: AllUserComponent, canActivate: [AuthGuard], },
     ]
