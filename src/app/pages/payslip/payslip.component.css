@@ -1,0 +1,41 @@
+.payslip-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .slip-details {
+    margin-top: 20px;
+    background-color: #eef;
+    padding: 15px;
+    border-radius: 6px;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  

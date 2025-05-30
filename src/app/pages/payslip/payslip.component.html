@@ -1,1 +1,27 @@
-<p>payslip works!</p>
+<div class="payslip-container">
+    <h2>Generate Payslip</h2>
+  
+    <label>Employee ID:</label>
+    <input type="number" [(ngModel)]="empId" />
+  
+    <label>Month (YYYY-MM):</label>
+    <input type="text" [(ngModel)]="month" placeholder="2025-05" />
+  
+    <button (click)="fetchPayslip()">Get Payslip</button>
+  
+    <div *ngIf="error" class="error">{{ error }}</div>
+  
+    <div *ngIf="slip" class="slip-details">
+      <h3>Payslip for {{ slip.month }}</h3>
+      <p><strong>Employee ID:</strong> {{ slip.employee.id }}</p>
+      <p><strong>Base Salary:</strong> ₹{{ slip.baseSalary }}</p>
+      <p><strong>Present Days:</strong> {{ slip.presentDays }}</p>
+      <p><strong>Total Working Days:</strong> {{ slip.totalWorkingDays }}</p>
+      <p><strong>Paid Leaves:</strong> {{ slip.paidLeaves }}</p>
+      <p><strong>Unpaid Leaves:</strong> {{ slip.unpaidLeaves }}</p>
+      <p><strong>Deductions:</strong> ₹{{ slip.deductions }}</p>
+      <p><strong>Net Salary:</strong> ₹{{ slip.netSalary }}</p>
+      <p><strong>Generated Date:</strong> {{ slip.generatedDate }}</p>
+    </div>
+  </div>
+  
