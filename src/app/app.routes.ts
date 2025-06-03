@@ -58,6 +58,7 @@ import { KudoComponent } from './pages/kudo/kudo.component';
 import { HelpdeskComponent } from './pages/helpdesk/helpdesk.component';
 import { RequestHubComponent } from './pages/request-hub/request-hub.component';
 import { UserFeedbackComponent } from './pages/user-feedback/user-feedback.component';
+import { ApplyLeavesComponent } from './pages/apply-leaves/apply-leaves.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -122,6 +123,7 @@ export const routes: Routes = [
       { path: 'Helpdesk', component: HelpdeskComponent, canActivate: [AuthGuard] },
       { path: 'Workflow Delegates/request-hub', component: RequestHubComponent, canActivate: [AuthGuard] },
       { path: 'my-worklife/feedback', component: UserFeedbackComponent, canActivate: [AuthGuard] },
+      { path: 'leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
     ]
   },
 

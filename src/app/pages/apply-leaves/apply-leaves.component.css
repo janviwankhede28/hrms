@@ -1,0 +1,136 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
+  }
+  
+  form input {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+  }
+  
+  form input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  form button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    font-size: 13px;
+    margin-top: -8px;
+    margin-bottom: 5px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+    font-size: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  table th,
+  table td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  thead {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .status.approved {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .status.rejected {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .status.pending {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  button.approve {
+    background-color: #28a745;
+  }
+  
+  button.reject {
+    background-color: #dc3545;
+  }
+  
+  button.delete {
+    background-color: #6c757d;
+  }
+  
+  button.approve:hover {
+    background-color: #218838;
+  }
+  
+  button.reject:hover {
+    background-color: #c82333;
+  }
+  
+  button.delete:hover {
+    background-color: #5a6268;
+  }
+  
+  button {
+    margin: 0 3px;
+    padding: 7px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
