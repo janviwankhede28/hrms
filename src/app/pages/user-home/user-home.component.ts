@@ -9,6 +9,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 
 export class UserHomeComponent implements OnInit, OnDestroy {
+[x: string]: any;
+remarks: any;
+signOut() {
+throw new Error('Method not implemented.');
+}
 
   timeString: string = '';
   private intervalId: any;

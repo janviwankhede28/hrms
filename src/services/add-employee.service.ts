@@ -1,5 +1,3 @@
-
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,6 +8,7 @@ import { Observable } from 'rxjs';
 export class AddEmployeeService {
   private apiUrl = 'http://localhost:8080/api/employees';
   private apiUrl2 = 'http://localhost:8080/Employee/register';
+  private apiUrl3 = 'http://localhost:8080/api/salary/upload';
 
   constructor(private http: HttpClient) {}
 
@@ -56,4 +55,5 @@ export class AddEmployeeService {
       headers: this.getHeaders(),
     });
   }
+  
 }

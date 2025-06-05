@@ -59,6 +59,7 @@ import { HelpdeskComponent } from './pages/helpdesk/helpdesk.component';
 import { RequestHubComponent } from './pages/request-hub/request-hub.component';
 import { UserFeedbackComponent } from './pages/user-feedback/user-feedback.component';
 import { ApplyLeavesComponent } from './pages/apply-leaves/apply-leaves.component';
+import { HrGenerateSalaryComponent } from './pages/hr-generate-salary/hr-generate-salary.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -105,6 +106,7 @@ export const routes: Routes = [
       { path: 'hr-add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard] },
       { path: 'hr-all-user', component: AllUserComponent, canActivate: [AuthGuard] },
       { path: 'hr-engage', component: EngageComponent, canActivate: [AuthGuard] },
+      { path: 'hr-generate-salary', component: HrGenerateSalaryComponent, canActivate: [AuthGuard] },
     ]
   },
 
