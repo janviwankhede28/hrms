@@ -3,18 +3,14 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [  FormsModule   ],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
-
-
 export class LoginComponent {
-
   email = '';
   password = '';
   message = '';
@@ -27,7 +23,13 @@ export class LoginComponent {
     this.auth.login(credentials).subscribe({
       next: (res: any) => {
         this.auth.setToken(res.token);
-        localStorage.setItem('user', JSON.stringify(res.user));
+        // localStorage.setItem('email', JSON.stringify(res.email) );
+        // localStorage.setItem('EmployeeId', JSON.stringify(res.EmployeeId));
+        localStorage.setItem(
+          'userData',
+          JSON.stringify({id:res.id, email: res.email, EmployeeId: res.EmployeeId })
+        );
+
         this.message = '';
         // Redirect user based on role in token
         const role = this.auth.getRoleFromToken();
@@ -39,7 +41,7 @@ export class LoginComponent {
       },
       error: (err) => {
         this.message = err.error || 'Login failed';
-      }
+      },
     });
   }
 }

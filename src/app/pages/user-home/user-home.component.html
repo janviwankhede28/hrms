@@ -33,15 +33,47 @@
       <!-- Date/Time Card -->
       <div class="col-lg-4 col-md-6">
         <div class="card h-100">
-          <div class="card-body text-center py-4">
+
+          <!-- <div class="card-body text-center py-4">
             <div class="d-flex align-items-center justify-content-center mb-2">
               <span class="status-dot bg-success me-2"></span>
               <small class="text-muted">27 May 2025</small>
             </div>
             <p class="text-muted small mb-3">Tuesday | General Shift</p>
             <div class="time-display text-dark mb-4">{{timeString}}</div>
-            <button class="btn btn-primary px-4">Sign In</button>
+
+            <button class="btn btn-primary px-4
+            " data-bs-toggle="modal" data-bs-target="#workLocationModal">
+              Sign In
+            </button>
+          </div> -->
+
+          <!-- Sign-In Button in Card -->
+          <div class="card-body text-center py-4">
+            <div class="d-flex align-items-center justify-content-center mb-2">
+              <span class="status-dot bg-success me-2"></span>
+              <small class="text-muted">27 May 2025</small>
+            </div>
+            <p class="text-muted small mb-3">Tuesday | General Shift</p>
+            <div class="time-display text-dark mb-4">{{ timeString }}</div>
+
+            <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#workLocationModal"
+              *ngIf="!isSignedIn">
+              Sign In
+            </button>
+
+
+            <button class="btn btn-danger px-4" *ngIf="isSignedIn">
+              View Swipes
+            </button>
+
+            <button class="btn btn-danger px-4" *ngIf="isSignedIn">
+              Sign Out
+            </button>
+
           </div>
+
+
         </div>
       </div>
 
@@ -236,6 +268,51 @@
   </div>
 </div>
 
-<!-- Bootstrap 5 JavaScript (Optional - for interactive components) -->
 
-<!-- Optional: Add real-time clock functionality -->
+
+<!-- Modal -->
+<div class="modal fade" id="workLocationModal" tabindex="-1" aria-labelledby="workLocationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <form (ngSubmit)="signIn()" #signInForm="ngForm">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Tell us your work location</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body row">
+
+          <!-- Form Inputs -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="location" class="form-label">Enter Sign-In Location<span class="text-danger">*</span></label>
+              <select id="location" name="location" class="form-select" [(ngModel)]="attendanceData.location" required>
+                <option value="" disabled selected>Select Location</option>
+                <option>Work from Home</option>
+                <option>Client Site</option>
+                <option>Office</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="remarks" class="form-label">Remarks</label>
+              <textarea id="remarks" name="remarks" class="form-control" [(ngModel)]="attendanceData.remarks"
+                        placeholder="Enter Reason"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </div>
+
+          <!-- Image -->
+          <div class="col-md-6 d-none d-md-block text-center">
+            <img src="/assets/work-location.jfif" alt="Location Image" class="img-fluid rounded" />
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+

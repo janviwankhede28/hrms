@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AddEmployeeService {
+  
   private apiUrl = 'http://localhost:8080/api/employees';
   private apiUrl2 = 'http://localhost:8080/Employee/register';
 
@@ -56,4 +57,7 @@ export class AddEmployeeService {
       headers: this.getHeaders(),
     });
   }
+
+
+
 }
