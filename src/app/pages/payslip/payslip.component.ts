@@ -1,40 +1,57 @@
-// src/app/components/payslip/payslip.component.ts
+// src/app/components/user-payslip/user-payslip.component.ts
 import { Component } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { PayslipService } from '../../services/payslip.service';
+import { Observable } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-payslip',
+  selector: 'app-user-payslip',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './payslip.component.html',
   styleUrls: ['./payslip.component.css']
 })
 export class PayslipComponent {
-  empId!: number;
-  month!: string;
-  slip: any = null;
-  error: string = '';
+  salaryRecords: any[] = [];
+  userEmail: string = '';  // logged-in user's email
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 
-  fetchPayslip() {
-    if (!this.empId || !this.month) {
-      this.error = 'Please enter Employee ID and Month.';
-      return;
+  ngOnInit(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      this.userEmail = payload.sub;  // assuming JWT `sub` contains email
     }
 
-    this.http.get<any>(`http://localhost:8080/api/salary/slip/${this.empId}/${this.month}`)
-      .subscribe({
-        next: (data) => {
-          this.slip = data;
-          this.error = '';
-        },
-        error: () => {
-          this.error = 'Payslip not found or error occurred.';
-          this.slip = null;
-        }
-      });
+    // Load slips for this user
+    this.http.get<any[]>(`http://localhost:8080/api/salary/email/${this.userEmail}`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      })
+    }).subscribe((data: any[]) => {
+      this.salaryRecords = data;
+    });
+  }
+
+  downloadSlip(id: number) {
+    this.http.get(`http://localhost:8080/api/salary/id/${id}`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }),
+      responseType: 'blob'
+    }).subscribe((blob: Blob | MediaSource) => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'SalarySlip.pdf';
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }, () => {
+      
+    });
   }
 }

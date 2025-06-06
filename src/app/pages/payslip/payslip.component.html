@@ -1,27 +1,23 @@
-<div class="payslip-container">
-    <h2>Generate Payslip</h2>
-  
-    <label>Employee ID:</label>
-    <input type="number" [(ngModel)]="empId" />
-  
-    <label>Month (YYYY-MM):</label>
-    <input type="text" [(ngModel)]="month" placeholder="2025-05" />
-  
-    <button (click)="fetchPayslip()">Get Payslip</button>
-  
-    <div *ngIf="error" class="error">{{ error }}</div>
-  
-    <div *ngIf="slip" class="slip-details">
-      <h3>Payslip for {{ slip.month }}</h3>
-      <p><strong>Employee ID:</strong> {{ slip.employee.id }}</p>
-      <p><strong>Base Salary:</strong> ₹{{ slip.baseSalary }}</p>
-      <p><strong>Present Days:</strong> {{ slip.presentDays }}</p>
-      <p><strong>Total Working Days:</strong> {{ slip.totalWorkingDays }}</p>
-      <p><strong>Paid Leaves:</strong> {{ slip.paidLeaves }}</p>
-      <p><strong>Unpaid Leaves:</strong> {{ slip.unpaidLeaves }}</p>
-      <p><strong>Deductions:</strong> ₹{{ slip.deductions }}</p>
-      <p><strong>Net Salary:</strong> ₹{{ slip.netSalary }}</p>
-      <p><strong>Generated Date:</strong> {{ slip.generatedDate }}</p>
-    </div>
-  </div>
-  
+<div class="container mt-4">
+  <h2>💼 My Salary Slips</h2>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Month</th>
+        <th>Uploaded By</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let slip of salaryRecords; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ slip.month }}</td>
+        <td>{{ slip.uploadedBy }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="downloadSlip(slip.id)">Download</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

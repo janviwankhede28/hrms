@@ -1,4 +1,4 @@
-.payslip-container {
+/* .payslip-container {
     max-width: 600px;
     margin: auto;
     padding: 30px;
@@ -38,4 +38,64 @@
     color: red;
     margin-top: 10px;
   }
-  
+   */
+
+
+
+   body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+  }
+   
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+   
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+   
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+   
+  th,
+  td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+   
+  th {
+    background-color: #007bff;
+    color: white;
+  }
+   
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+   
+  .btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease;
+  }
+   
+  .btn:hover {
+    background-color: #218838;
+  }
+   
+   

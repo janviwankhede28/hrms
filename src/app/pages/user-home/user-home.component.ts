@@ -12,6 +12,11 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class UserHomeComponent implements OnInit, OnDestroy {
+[x: string]: any;
+remarks: any;
+signOut() {
+throw new Error('Method not implemented.');
+}
 
   isSignedIn: boolean = false;
 
