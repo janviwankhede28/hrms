@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { AttendanceService } from './../../../services/attendance.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,9 +14,6 @@ import { FormsModule } from '@angular/forms';
 export class UserHomeComponent implements OnInit, OnDestroy {
 [x: string]: any;
 remarks: any;
-signOut() {
-throw new Error('Method not implemented.');
-}
 
   isSignedIn: boolean = false;
 
@@ -73,7 +70,25 @@ throw new Error('Method not implemented.');
     });
   }
 
+signOut() {
+    this.AttendanceService.signOut(this.attendanceData.employeeId).subscribe({
+      next: (res) => {
+        console.log('Sign-out successful:', res);
+        this.isSignedIn = false;
 
+        // Close modal manually
+        const modalElement = document.getElementById('workLocationModal');
+        if (modalElement) {
+          // @ts-ignore
+          const modal = (window as any).bootstrap.Modal.getInstance(modalElement) || new (window as any).bootstrap.Modal(modalElement);
+          modal.hide();
+        }
+      },
+      error: (err) => {
+        console.error('Error during sign-out:', err);
+      }
+    });
+  }
 
 }
 
