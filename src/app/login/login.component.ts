@@ -23,8 +23,7 @@ export class LoginComponent {
     this.auth.login(credentials).subscribe({
       next: (res: any) => {
         this.auth.setToken(res.token);
-        // localStorage.setItem('email', JSON.stringify(res.email) );
-        // localStorage.setItem('EmployeeId', JSON.stringify(res.EmployeeId));
+       
         localStorage.setItem(
           'userData',
           JSON.stringify({id:res.id, email: res.email, EmployeeId: res.EmployeeId })
