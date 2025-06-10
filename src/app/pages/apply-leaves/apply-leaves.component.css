@@ -1,136 +1,72 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 450px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
-  }
-  
-  form input {
-    padding: 10px;
-    font-size: 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s;
-  }
-  
-  form input:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  form button {
-    padding: 12px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  form button:hover {
-    background-color: #0056b3;
-  }
-  
-  .error {
-    color: red;
-    font-size: 13px;
-    margin-top: -8px;
-    margin-bottom: 5px;
-  }
-  
-  .table-container {
-    overflow-x: auto;
-    margin-top: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: auto;
-    font-size: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  table th,
-  table td {
-    padding: 12px 10px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  thead {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .status {
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-  
-  .status.approved {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .status.rejected {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  .status.pending {
-    background-color: #ffc107;
-    color: black;
-  }
-  
-  button.approve {
-    background-color: #28a745;
-  }
-  
-  button.reject {
-    background-color: #dc3545;
-  }
-  
-  button.delete {
-    background-color: #6c757d;
-  }
-  
-  button.approve:hover {
-    background-color: #218838;
-  }
-  
-  button.reject:hover {
-    background-color: #c82333;
-  }
-  
-  button.delete:hover {
-    background-color: #5a6268;
-  }
-  
-  button {
-    margin: 0 3px;
-    padding: 7px 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+.apply-leave-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.apply-leave-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+form div {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #34495e;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline-color: #3498db;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+input[type="file"] {
+  padding: 5px;
+}
+
+button[type="submit"] {
+  padding: 12px;
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #27ae60;
+}
+
+button[type="submit"]:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+

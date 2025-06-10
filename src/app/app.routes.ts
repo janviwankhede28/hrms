@@ -62,6 +62,8 @@ import { ApplyLeavesComponent } from './pages/apply-leaves/apply-leaves.componen
 import { HrGenerateSalaryComponent } from './pages/hr-generate-salary/hr-generate-salary.component';
 import { ManagerGenerateSalaryComponent } from './pages/manager-generate-salary/manager-generate-salary.component';
 import { SeniorhrGenerateSalaryComponent } from './pages/seniorhr-generate-salary/seniorhr-generate-salary.component';
+import { LeavesStatusComponent } from './pages/leaves-status/leaves-status.component';
+import { AllLeaveRequestComponent } from './pages/all-leave-request/all-leave-request.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -111,6 +113,7 @@ export const routes: Routes = [
       { path: 'hr-all-user', component: AllUserComponent, canActivate: [AuthGuard] },
       { path: 'hr-engage', component: EngageComponent, canActivate: [AuthGuard] },
       { path: 'hr-generate-salary', component: HrGenerateSalaryComponent, canActivate: [AuthGuard] },
+      { path: 'all-leave-request', component: AllLeaveRequestComponent, canActivate: [AuthGuard] },
     ]
   },
 
@@ -130,6 +133,8 @@ export const routes: Routes = [
       { path: 'Workflow Delegates/request-hub', component: RequestHubComponent, canActivate: [AuthGuard] },
       { path: 'my-worklife/feedback', component: UserFeedbackComponent, canActivate: [AuthGuard] },
       { path: 'leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
+      { path: 'leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
+      { path: 'leaves/leaves-status', component: LeavesStatusComponent, canActivate: [AuthGuard] },
     ]
   },
 
