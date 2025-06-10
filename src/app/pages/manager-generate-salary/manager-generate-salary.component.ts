@@ -4,16 +4,16 @@ import { SalaryService } from '../../../services/salary.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { error } from 'console';
+
 @Component({
-  selector: 'app-seniorhr-generate-salary',
+  selector: 'app-manager-generate-salary',
   standalone: true,
   imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule],
-  templateUrl: './seniorhr-generate-salary.component.html',
-  styleUrl: './seniorhr-generate-salary.component.css'
+  templateUrl: './manager-generate-salary.component.html',
+  styleUrl: './manager-generate-salary.component.css'
 })
-export class SeniorhrGenerateSalaryComponent {
-
-    getAllSlips() {
+export class ManagerGenerateSalaryComponent {
+  getAllSlips() {
     throw new Error('Method not implemented.');
     }
     month: any;

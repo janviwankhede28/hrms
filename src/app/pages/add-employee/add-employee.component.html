@@ -184,11 +184,23 @@
             <input type="email" formControlName="email" class="form-control" [class.is-invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"/>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-3 position-relative">
             <label class="form-label">Password</label>
-            <input type="password" formControlName="password" class="form-control" [class.is-invalid]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"/>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="Example@123"
+              formControlName="password"
+              class="form-control pe-5"
+              [class.is-invalid]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+            />
+            <i
+              class="fa"
+              [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+              (click)="togglePassword()"
+              style="position: absolute; top: 38px; right: 15px; cursor: pointer; color: #6c757d;"
+            ></i>
           </div>
-
+          
           <div class="mb-3">
             <label class="form-label">Role</label>
             <select class="form-select" formControlName="role">

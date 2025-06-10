@@ -50,7 +50,7 @@
           />
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label>Password</label>
           <input
             type="password"
@@ -60,7 +60,31 @@
             class="form-control"
             required
           />
+        </div> -->
+        <div class="mb-3 position-relative">
+          <label>Password</label>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            placeholder="Example@123"
+            [(ngModel)]="password"
+            name="password"
+            class="form-control pe-5"
+            required
+          />
+          <i
+            class="fa"
+            [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+            (click)="togglePassword()"
+            style="
+              position: absolute;
+              top: 38px;
+              right: 15px;
+              cursor: pointer;
+              color: #6c757d;
+            "
+          ></i>
         </div>
+        
 
         <!-- <div class="d-flex justify-content-between align-items-center mb-3">
           <div class="form-check">

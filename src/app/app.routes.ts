@@ -60,6 +60,8 @@ import { RequestHubComponent } from './pages/request-hub/request-hub.component';
 import { UserFeedbackComponent } from './pages/user-feedback/user-feedback.component';
 import { ApplyLeavesComponent } from './pages/apply-leaves/apply-leaves.component';
 import { HrGenerateSalaryComponent } from './pages/hr-generate-salary/hr-generate-salary.component';
+import { ManagerGenerateSalaryComponent } from './pages/manager-generate-salary/manager-generate-salary.component';
+import { SeniorhrGenerateSalaryComponent } from './pages/seniorhr-generate-salary/seniorhr-generate-salary.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -82,6 +84,7 @@ export const routes: Routes = [
       { path: 'manager-engage', component: EngageComponent, canActivate: [AuthGuard] },
       { path: 'manager-add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard] },
       { path: 'manager-all-user', component: AllUserComponent, canActivate: [AuthGuard] },
+      { path: 'manager-generated-salary', component: ManagerGenerateSalaryComponent, canActivate: [AuthGuard] },
     ]
   },
 
@@ -94,6 +97,7 @@ export const routes: Routes = [
       { path: 'senior-hr-add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard] },
       { path: 'senior-hr-all-user', component: AllUserComponent, canActivate: [AuthGuard] },
       { path: 'senior-hr-engage', component: EngageComponent, canActivate: [AuthGuard] },
+      { path: 'senior-generated-salary', component:SeniorhrGenerateSalaryComponent, canActivate: [AuthGuard] },
     ]
   },
 

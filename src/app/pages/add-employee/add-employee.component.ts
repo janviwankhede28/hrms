@@ -140,7 +140,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeService } from '../../../services/add-employee.service';
@@ -150,7 +150,7 @@ declare var bootstrap: any;
 @Component({
   selector: 'app-add-employee',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './add-employee.component.html',
   styleUrl: './add-employee.component.css'
 })
@@ -161,7 +161,7 @@ export class AddEmployeeComponent implements OnInit {
   isEdit = false;
   selectedEmployeeId: number | null = null;
   selectedImage: File | null = null;
-
+  showPassword: boolean = false; // ✅ For eye icon toggle
   constructor(
     private fb: FormBuilder,
     private addEmployeeService: AddEmployeeService
@@ -189,7 +189,10 @@ export class AddEmployeeComponent implements OnInit {
 
     this.getEmployees();
   }
-
+// ✅ Toggle Password Visibility
+togglePassword() {
+  this.showPassword = !this.showPassword;
+}
   getEmployees() {
     this.addEmployeeService.getEmployees().subscribe(res => {
       this.employees = res;

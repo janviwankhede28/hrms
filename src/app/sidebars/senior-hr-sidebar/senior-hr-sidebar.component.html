@@ -73,6 +73,13 @@
           <span class="menu-label" *ngIf="isExpanded()">Engage</span>
         </a>
       </li>
+
+      <li>
+        <a class="menu-item" routerLink="/senior-generated-salary" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <i class="material-icons">chat</i>
+          <span class="menu-label" *ngIf="isExpanded()">Generated-Salary</span>
+        </a>
+      </li>
       <!-- My Worklife -->
       <li>
         <div class="menu-item has-submenu" (click)="toggleSubmenu('My Worklife')">
