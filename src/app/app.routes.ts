@@ -64,12 +64,10 @@ import { ManagerGenerateSalaryComponent } from './pages/manager-generate-salary/
 import { SeniorhrGenerateSalaryComponent } from './pages/seniorhr-generate-salary/seniorhr-generate-salary.component';
 import { LeavesStatusComponent } from './pages/leaves-status/leaves-status.component';
 import { AllLeaveRequestComponent } from './pages/all-leave-request/all-leave-request.component';
-import { ManagerDocumentCenterComponent } from './pages/manager-document-center/manager-document-center.component';
-import { HrDocumentCentreComponent } from './pages/hr-document-centre/hr-document-centre.component';
 import { ManagerPeopleComponent } from './pages/manager-people/manager-people.component';
 import { ManagerHelpdeskComponent } from './pages/manager-helpdesk/manager-helpdesk.component';
-import { ManagerKudosComponent } from './pages/manager-kudos/manager-kudos.component';
 import { ManagerReviewComponent } from './pages/manager-review/manager-review.component';
+import { ManagerKudosComponent } from './pages/manager-kudos/manager-kudos.component';
 import { ManagerFeedbackComponent } from './pages/manager-feedback/manager-feedback.component';
 import { ManagerTaskComponent } from './pages/manager-task/manager-task.component';
 
@@ -128,9 +126,6 @@ export const routes: Routes = [
       { path: 'hr-engage', component: EngageComponent, canActivate: [AuthGuard] },
       { path: 'hr-generate-salary', component: HrGenerateSalaryComponent, canActivate: [AuthGuard] },
       { path: 'all-leave-request', component: AllLeaveRequestComponent, canActivate: [AuthGuard] },
-      { path: 'document-centre', component:ManagerDocumentCenterComponent, canActivate: [AuthGuard] },
-      { path: 'document-centre', component:HrDocumentCentreComponent, canActivate: [AuthGuard] },
-
     ]
   },
 
