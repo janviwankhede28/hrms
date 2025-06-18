@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { HolidayService } from './../../../services/holidays.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ToastrService } from 'ngx-toastr';
 declare var bootstrap: any;
 
 @Component({
@@ -20,11 +20,16 @@ export class HolidaysComponent implements OnInit {
   successMessage = '';
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private holidayService: HolidayService) {
+  constructor(
+    private toastr: ToastrService,
+    private fb: FormBuilder,
+    private holidayService: HolidayService) {
+
     this.holidayForm = this.fb.group({
       name: ['', Validators.required],
       date: ['', Validators.required],
       description: [''],
+
     });
   }
 
@@ -59,7 +64,8 @@ export class HolidaysComponent implements OnInit {
       const holidayData = this.holidayForm.value;
       this.holidayService.createHoliday(holidayData).subscribe({
         next: () => {
-          this.successMessage = 'Holiday created successfully!';
+
+          this.toastr.success('Holiday added successfully!', 'Success');
           this.resetForm();
           this.loadHolidays();
           this.closeModal();
@@ -78,6 +84,7 @@ export class HolidaysComponent implements OnInit {
       this.holidayService.deleteHoliday(id).subscribe({
         next: () => {
           this.loadHolidays();
+          this.toastr.success('Holiday deleted successfully!', 'Success');
         },
         error: () => {
           this.errorMessage = 'Failed to delete holiday.';

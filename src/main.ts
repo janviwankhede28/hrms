@@ -7,14 +7,29 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { importProvidersFrom } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { appConfig } from './app/app.config';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
-bootstrapApplication(AppComponent,appConfig) 
+bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(withFetch()),
-    provideRouter(routes) ,// ✅ Router yahan se provide ho raha hai
-     importProvidersFrom(FormsModule, HttpClientModule) // ✅ FormsModule yahan se provide ho raha hai
-  ];
+    provideRouter(routes),
+    importProvidersFrom(
+      FormsModule,
+      HttpClientModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot({
+        positionClass: 'toast-top-right',
+        timeOut: 4000,
+        progressBar: true
+      })
+    )
+  ]
+});
+
+
+
+
 
 
 
