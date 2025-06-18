@@ -1,36 +1,3 @@
-// import { RouterModule, Routes } from '@angular/router';
-// import { LoginComponent } from './login/login.component';
-// import { RegisterComponent } from './register/register.component';
-
-// import { AuthGuard } from './guards/auth.guard';
-
-// import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
-// import { HrDashboardComponent } from './dashboard/hr-dashboard/hr-dashboard.component';
-// import { ManagerDashboardComponent } from './dashboard/manager-dashboard/manager-dashboard.component';
-// import { SeniorhrDashboardComponent } from './dashboard/seniorhr-dashboard/seniorhr-dashboard.component';
-// import { HomeComponent } from './home/home.component';
-
-
-// export const routes: Routes = [
-//   { path: '', redirectTo: 'login', pathMatch: 'full' },
-
-//   { path: 'login', component: LoginComponent },
-//   { path: 'register', component: RegisterComponent },
-
-//   { path: 'home', component: HomeComponent, },
-
-//   { path: 'dashboard/user', component: UserDashboardComponent, canActivate: [AuthGuard], data: { role: 'USER' } },
-//   { path: 'dashboard/hr', component: HrDashboardComponent, canActivate: [AuthGuard], data: { role: 'HR' } },
-//   { path: 'dashboard/manager', component: ManagerDashboardComponent, canActivate: [AuthGuard], data: { role: 'MANAGER' } },
-//   { path: 'dashboard/seniorhr', component: SeniorhrDashboardComponent, canActivate: [AuthGuard], data: { role: 'SENIORHR' } },
-//   { path: '**', redirectTo: 'login' },
-// ];
-
-
-
-
-
-//? tesing routes
 
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -80,6 +47,7 @@ import { HrDocumentCentreComponent } from './pages/hr-document-centre/hr-documen
 import { HolidayComponent } from './pages/holiday/holiday.component';
 import { ManagerAllLeaveRequestComponent } from './pages/manager-all-leave-request/manager-all-leave-request.component';
 import { ManagerHolidayComponent } from './pages/manager-holiday/manager-holiday.component';
+import { HolidaysComponent } from './pages/holidays/holidays.component';
 
 
 export const routes: Routes = [
@@ -103,7 +71,7 @@ export const routes: Routes = [
       { path: 'manager/engage', component: EngageComponent, canActivate: [AuthGuard] },
       { path: 'manager-add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard] },
       { path: 'manager-all-user', component: AllUserComponent, canActivate: [AuthGuard] },
-      
+
       { path: 'manager/people', component: ManagerPeopleComponent, canActivate: [AuthGuard] },
       { path: 'manager/helpdesk', component: ManagerHelpdeskComponent, canActivate: [AuthGuard] },
       { path: 'manager/MyWorklife/kudos', component: ManagerKudosComponent, canActivate: [AuthGuard] },
@@ -111,8 +79,8 @@ export const routes: Routes = [
       { path: 'manager/MyWorklife/feedback', component: ManagerFeedbackComponent, canActivate: [AuthGuard] },
       { path: 'manager/todo/tasks', component: ManagerTaskComponent, canActivate: [AuthGuard] },
       { path: 'manager/document-centre', component: ManagerDocumentCenterComponent, canActivate: [AuthGuard] },
-       { path: 'manager/all-leave-request', component: ManagerAllLeaveRequestComponent, canActivate: [AuthGuard] },
-        { path: 'manager/holiday', component: ManagerHolidayComponent, canActivate: [AuthGuard] },
+      { path: 'manager/all-leave-request', component: ManagerAllLeaveRequestComponent, canActivate: [AuthGuard] },
+      { path: 'manager/create-holiday', component: HolidaysComponent, canActivate: [AuthGuard] },
     ]
   },
 
@@ -171,8 +139,8 @@ export const routes: Routes = [
       { path: 'user/leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
       { path: 'user/leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
       // { path: 'user/leaves/leaves-status', component: LeavesStatusComponent, canActivate: [AuthGuard] },
-      
-      
+
+
     ]
   },
 
