@@ -3,9 +3,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from '../guards/auth.guard';
-
 import { ManagerLayoutComponent } from './layout/manager-layout/manager-layout.component';
-
 import { EngageComponent } from './pages/engage/engage.component';
 import { AddEmployeeComponent } from './pages/add-employee/add-employee.component';
 import { AllUserComponent } from './pages/all-user/all-user.component';
@@ -46,7 +44,6 @@ import { HrHelpdeskComponent } from './pages/hr-helpdesk/hr-helpdesk.component';
 import { HrDocumentCentreComponent } from './pages/hr-document-centre/hr-document-centre.component';
 import { HolidayComponent } from './pages/holiday/holiday.component';
 import { ManagerAllLeaveRequestComponent } from './pages/manager-all-leave-request/manager-all-leave-request.component';
-import { ManagerHolidayComponent } from './pages/manager-holiday/manager-holiday.component';
 import { HolidaysComponent } from './pages/holidays/holidays.component';
 
 
