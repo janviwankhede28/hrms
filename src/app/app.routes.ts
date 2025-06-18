@@ -60,9 +60,8 @@ import { RequestHubComponent } from './pages/request-hub/request-hub.component';
 import { UserFeedbackComponent } from './pages/user-feedback/user-feedback.component';
 import { ApplyLeavesComponent } from './pages/apply-leaves/apply-leaves.component';
 import { HrGenerateSalaryComponent } from './pages/hr-generate-salary/hr-generate-salary.component';
-import { ManagerGenerateSalaryComponent } from './pages/manager-generate-salary/manager-generate-salary.component';
 import { SeniorhrGenerateSalaryComponent } from './pages/seniorhr-generate-salary/seniorhr-generate-salary.component';
-import { LeavesStatusComponent } from './pages/leaves-status/leaves-status.component';
+// import { LeavesStatusComponent } from './pages/leaves-status/leaves-status.component';
 import { AllLeaveRequestComponent } from './pages/all-leave-request/all-leave-request.component';
 import { ManagerPeopleComponent } from './pages/manager-people/manager-people.component';
 import { ManagerHelpdeskComponent } from './pages/manager-helpdesk/manager-helpdesk.component';
@@ -79,6 +78,9 @@ import { HrPeopleComponent } from './pages/hr-people/hr-people.component';
 import { HrHelpdeskComponent } from './pages/hr-helpdesk/hr-helpdesk.component';
 import { HrDocumentCentreComponent } from './pages/hr-document-centre/hr-document-centre.component';
 import { HolidayComponent } from './pages/holiday/holiday.component';
+import { ManagerAllLeaveRequestComponent } from './pages/manager-all-leave-request/manager-all-leave-request.component';
+import { ManagerHolidayComponent } from './pages/manager-holiday/manager-holiday.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -101,7 +103,7 @@ export const routes: Routes = [
       { path: 'manager/engage', component: EngageComponent, canActivate: [AuthGuard] },
       { path: 'manager-add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard] },
       { path: 'manager-all-user', component: AllUserComponent, canActivate: [AuthGuard] },
-      { path: 'manager-generated-salary', component: ManagerGenerateSalaryComponent, canActivate: [AuthGuard] },
+      
       { path: 'manager/people', component: ManagerPeopleComponent, canActivate: [AuthGuard] },
       { path: 'manager/helpdesk', component: ManagerHelpdeskComponent, canActivate: [AuthGuard] },
       { path: 'manager/MyWorklife/kudos', component: ManagerKudosComponent, canActivate: [AuthGuard] },
@@ -109,6 +111,8 @@ export const routes: Routes = [
       { path: 'manager/MyWorklife/feedback', component: ManagerFeedbackComponent, canActivate: [AuthGuard] },
       { path: 'manager/todo/tasks', component: ManagerTaskComponent, canActivate: [AuthGuard] },
       { path: 'manager/document-centre', component: ManagerDocumentCenterComponent, canActivate: [AuthGuard] },
+       { path: 'manager/all-leave-request', component: ManagerAllLeaveRequestComponent, canActivate: [AuthGuard] },
+        { path: 'manager/holiday', component: ManagerHolidayComponent, canActivate: [AuthGuard] },
     ]
   },
 
@@ -166,7 +170,9 @@ export const routes: Routes = [
       { path: 'user/my-worklife/feedback', component: UserFeedbackComponent, canActivate: [AuthGuard] },
       { path: 'user/leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
       { path: 'user/leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
-      { path: 'user/leaves/leaves-status', component: LeavesStatusComponent, canActivate: [AuthGuard] },
+      // { path: 'user/leaves/leaves-status', component: LeavesStatusComponent, canActivate: [AuthGuard] },
+      
+      
     ]
   },
 

@@ -58,3 +58,6 @@ body {
     width: 80px;
     opacity: 0.5;
   }
+.btn-toggle-group button {
+    margin: 0 25px; /* Horizontal space between buttons */
+  }

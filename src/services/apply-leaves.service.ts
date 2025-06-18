@@ -23,6 +23,7 @@ export interface LeaveRequest {
   providedIn: 'root'
 })
 export class ApplyLeavesService {
+  [x: string]: any;
   private baseUrl = 'http://localhost:8080/api/leaves';
 
   constructor(private http: HttpClient) {}
