@@ -59,5 +59,12 @@ body {
     opacity: 0.5;
   }
 .btn-toggle-group button {
-    margin: 0 25px; 
+    margin: 0 25px; /* Horizontal space between buttons */
   }
+
+
+  .hover-shadow:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  }
+
+ 
