@@ -29,15 +29,10 @@ export class UserHomeComponent implements OnInit, OnDestroy {
 
   timeString: string = '';
   private intervalId: any;
-  passwordForm: FormGroup;
 
   constructor( private fb: FormBuilder,
     private AttendanceService: AttendanceService,
-    private UserService: UserService
-  ) {this.passwordForm = this.fb.group({
-      userId: ['', Validators.required],
-      newPassword: ['', Validators.required]
-    });}
+  ) {}
 
   ngOnInit(): void {
     this.updateTime();
