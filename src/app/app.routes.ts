@@ -45,6 +45,8 @@ import { HrDocumentCentreComponent } from './pages/hr-document-centre/hr-documen
 import { HolidayComponent } from './pages/holiday/holiday.component';
 import { ManagerAllLeaveRequestComponent } from './pages/manager-all-leave-request/manager-all-leave-request.component';
 import { HolidaysComponent } from './pages/holidays/holidays.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { TermsAndConditionComponent } from './pages/terms-and-condition/terms-and-condition.component';
 
 
 export const routes: Routes = [
@@ -52,6 +54,8 @@ export const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'privacy-policy', component:PrivacyPolicyComponent },
+  { path: 'terms-and-conditions', component:TermsAndConditionComponent },
 
   // 🔐 Dashboard routes with AuthGuard
   { path: 'dashboard/manager', component: ManagerLayoutComponent, canActivate: [AuthGuard], data: { role: 'MANAGER' } },
