@@ -1,32 +1,43 @@
+import { UserService } from './../../../services/user.service';
 import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { AttendanceService } from './../../../services/attendance.service';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+declare var bootstrap: any;
+
 
 @Component({
   selector: 'app-user-home',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [ReactiveFormsModule,FormsModule, CommonModule, HttpClientModule],
   templateUrl: './user-home.component.html',
-  styleUrl: './user-home.component.css'
+  styleUrl: './user-home.component.css',
 })
-
 export class UserHomeComponent implements OnInit, OnDestroy {
-[x: string]: any;
-remarks: any;
+  [x: string]: any;
+  remarks: any;
 
   isSignedIn: boolean = false;
 
   attendanceData = {
-    employeeId: JSON.parse(localStorage.getItem('userData') || '{}').EmployeeId || '',
+    employeeId:
+      JSON.parse(localStorage.getItem('userData') || '{}').EmployeeId || '',
     location: '',
-    remarks: ''
+    remarks: '',
   };
 
   timeString: string = '';
   private intervalId: any;
+  passwordForm: FormGroup;
 
-  constructor(private AttendanceService: AttendanceService) {}
+  constructor( private fb: FormBuilder,
+    private AttendanceService: AttendanceService,
+    private UserService: UserService
+  ) {this.passwordForm = this.fb.group({
+      userId: ['', Validators.required],
+      newPassword: ['', Validators.required]
+    });}
 
   ngOnInit(): void {
     this.updateTime();
@@ -45,9 +56,7 @@ remarks: any;
     this.timeString = `${hours} : ${minutes} : ${seconds}`;
   }
 
-
-
- signIn() {
+  signIn() {
     if (!this.attendanceData.location) return;
 
     this.AttendanceService.signIn(this.attendanceData).subscribe({
@@ -59,18 +68,19 @@ remarks: any;
         const modalElement = document.getElementById('workLocationModal');
         if (modalElement) {
           // @ts-ignore
-          const modal = (window as any).bootstrap.Modal.getInstance(modalElement) || new (window as any).bootstrap.Modal(modalElement);
+          const modal =
+            (window as any).bootstrap.Modal.getInstance(modalElement) ||
+            new (window as any).bootstrap.Modal(modalElement);
           modal.hide();
         }
       },
       error: (err) => {
-
         console.error('Error during sign-in:', err);
-      }
+      },
     });
   }
 
-signOut() {
+  signOut() {
     this.AttendanceService.signOut(this.attendanceData.employeeId).subscribe({
       next: (res) => {
         console.log('Sign-out successful:', res);
@@ -80,24 +90,19 @@ signOut() {
         const modalElement = document.getElementById('workLocationModal');
         if (modalElement) {
           // @ts-ignore
-          const modal = (window as any).bootstrap.Modal.getInstance(modalElement) || new (window as any).bootstrap.Modal(modalElement);
+          const modal =
+            (window as any).bootstrap.Modal.getInstance(modalElement) ||
+            new (window as any).bootstrap.Modal(modalElement);
           modal.hide();
         }
       },
       error: (err) => {
         console.error('Error during sign-out:', err);
-      }
+      },
     });
   }
 
+
+
+
 }
-
-
-
-
-
-
-
-
-
-

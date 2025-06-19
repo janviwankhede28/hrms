@@ -9,6 +9,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AddEmployeeService } from '../../../services/add-employee.service';
+import { ToastrService } from 'ngx-toastr';
 
 declare var bootstrap: any;
 
@@ -17,10 +18,9 @@ declare var bootstrap: any;
   standalone: true,
   imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './add-employee.component.html',
-  styleUrl: './add-employee.component.css'
+  styleUrl: './add-employee.component.css',
 })
-export class AddEmployeeComponent implements OnInit{
-
+export class AddEmployeeComponent implements OnInit {
   employees: any[] = [];
   employeeForm!: FormGroup;
   editForm!: FormGroup;
@@ -34,6 +34,7 @@ export class AddEmployeeComponent implements OnInit{
 
   constructor(
     private fb: FormBuilder,
+    private toastr: ToastrService,
     private http: HttpClient,
     private addEmployeeService: AddEmployeeService
   ) {}
@@ -109,6 +110,7 @@ export class AddEmployeeComponent implements OnInit{
     this.addEmployeeService.addEmployeeWithImage(formData).subscribe({
       next: () => {
         (document.getElementById('closeModalBtn') as HTMLElement)?.click();
+        this.toastr.success('Employee added successfully!', 'Success');
         this.employeeForm.reset();
         this.selectedFile = null;
         this.getEmployees();
@@ -159,6 +161,7 @@ export class AddEmployeeComponent implements OnInit{
             document.getElementById('closeEditModalBtn') as HTMLElement
           )?.click();
           this.getEmployees();
+          this.toastr.success('Employee updated successfully!', 'Success');
         },
         error: (err) => {
           console.error(err);
@@ -211,6 +214,7 @@ export class AddEmployeeComponent implements OnInit{
           document.getElementById('closeRegisterModalBtn') as HTMLElement
         )?.click();
         this.selectedImage = null;
+        this.toastr.success('Employee registered successfully!', 'Success');
         this.getEmployees();
       },
       error: (err) => {
@@ -224,6 +228,7 @@ export class AddEmployeeComponent implements OnInit{
   delete(id: number) {
     if (confirm('Are you sure you want to delete?')) {
       this.addEmployeeService.deleteEmployee(id).subscribe(() => {
+        this.toastr.success('Employee deleted successfully!', 'Success');
         this.getEmployees();
       });
     }
@@ -234,4 +239,3 @@ export class AddEmployeeComponent implements OnInit{
     this.selectedFile = null;
   }
 }
-
