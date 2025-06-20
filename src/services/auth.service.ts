@@ -59,18 +59,4 @@ export class AuthService {
   }
 
 
-
-
-  // getEmployeeIdFromToken(): number | null {
-  //   const token = this.getToken();
-  //   if (!token) return null;
-
-  //   try {
-  //     const payload = JSON.parse(atob(token.split('.')[1]));
-  //     return payload.employeeId || null;
-  //   } catch (e) {
-  //     console.error('Error decoding token:', e);
-  //     return null;
-  //   }
-  // }
 }

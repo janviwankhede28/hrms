@@ -10,9 +10,9 @@
   <div class="sidebar-header">
 
     <div class="logo-container">
-      <img
-        src="https://static.vecteezy.com/system/resources/previews/047/656/219/non_2x/abstract-logo-design-for-any-corporate-brand-business-company-vector.jpg"
-        alt="OpenFuture Logo" class="logo" />
+      <!-- <img
+        src="../../../assets/OpenFuture.jpeg"
+        alt="OpenFuture Logo" class="logo" /> -->
       <span class="logo-text" *ngIf="isExpanded()">OpenFuture</span>
     </div>
 
@@ -74,7 +74,7 @@
         </a>
       </li>
       <li>
-        
+
 
        <li>
         <div class="menu-item has-submenu" (click)="toggleSubmenu('Leave')">
@@ -89,13 +89,13 @@
               [routerLinkActiveOptions]="{ exact: true }"> ALL Leave request</a>
           </li>
           <li>
-            <a class="submenu-label mx-4 px-4" routerLink="manager/holiday" routerLinkActive="active"
+            <a class="submenu-label mx-4 px-4" routerLink="manager/create-holiday" routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: true }">Holiday</a>
           </li>
         </ul>
       </li>
 
-      
+
       <!-- My Worklife -->
       <li>
         <div class="menu-item has-submenu" (click)="toggleSubmenu('My Worklife')">

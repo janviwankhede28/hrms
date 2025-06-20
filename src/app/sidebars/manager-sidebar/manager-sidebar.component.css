@@ -27,11 +27,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  /* width: 40px; */
 }
 
 .logo {
   height: 40px;
-  width: 40px;
+  width: 13rem;
   border-radius: 10px;
   object-fit: cover;
 }
