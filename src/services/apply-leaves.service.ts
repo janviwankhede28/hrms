@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 // ✅ Inline types instead of importing from modal
-export type LeaveType = 'SICK' | 'CASUAL' | 'PAID' | 'UNPAID';
+export type LeaveType = 'SICK' | 'CASUAL' | 'PAID' | 'UNPAID' ;
 export type LeaveStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
 
 export interface LeaveRequest {

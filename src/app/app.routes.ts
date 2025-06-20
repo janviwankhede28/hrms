@@ -1,44 +1,44 @@
 // import { RouterModule, Routes } from '@angular/router';
 // import { LoginComponent } from './login/login.component';
 // import { RegisterComponent } from './register/register.component';
-
+ 
 // import { AuthGuard } from './guards/auth.guard';
-
+ 
 // import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
 // import { HrDashboardComponent } from './dashboard/hr-dashboard/hr-dashboard.component';
 // import { ManagerDashboardComponent } from './dashboard/manager-dashboard/manager-dashboard.component';
 // import { SeniorhrDashboardComponent } from './dashboard/seniorhr-dashboard/seniorhr-dashboard.component';
 // import { HomeComponent } from './home/home.component';
-
-
+ 
+ 
 // export const routes: Routes = [
 //   { path: '', redirectTo: 'login', pathMatch: 'full' },
-
+ 
 //   { path: 'login', component: LoginComponent },
 //   { path: 'register', component: RegisterComponent },
-
+ 
 //   { path: 'home', component: HomeComponent, },
-
+ 
 //   { path: 'dashboard/user', component: UserDashboardComponent, canActivate: [AuthGuard], data: { role: 'USER' } },
 //   { path: 'dashboard/hr', component: HrDashboardComponent, canActivate: [AuthGuard], data: { role: 'HR' } },
 //   { path: 'dashboard/manager', component: ManagerDashboardComponent, canActivate: [AuthGuard], data: { role: 'MANAGER' } },
 //   { path: 'dashboard/seniorhr', component: SeniorhrDashboardComponent, canActivate: [AuthGuard], data: { role: 'SENIORHR' } },
 //   { path: '**', redirectTo: 'login' },
 // ];
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
 //? tesing routes
-
+ 
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from '../guards/auth.guard';
-
+ 
 import { ManagerLayoutComponent } from './layout/manager-layout/manager-layout.component';
-
+ 
 import { EngageComponent } from './pages/engage/engage.component';
 import { AddEmployeeComponent } from './pages/add-employee/add-employee.component';
 import { AllUserComponent } from './pages/all-user/all-user.component';
@@ -49,7 +49,7 @@ import { ManagerHomeComponent } from './pages/manager-home/manager-home.componen
 import { SeniorHrHomeComponent } from './pages/senior-hr-home/senior-hr-home.component';
 import { HrHomeComponent } from './pages/hr-home/hr-home.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
-
+ 
 import { UserDocumentCenterComponent } from './pages/user-document-center/user-document-center.component';
 import { PayslipComponent } from './pages/payslip/payslip.component';
 import { UserPeopleComponent } from './pages/user-people/user-people.component';
@@ -81,19 +81,19 @@ import { HolidayComponent } from './pages/holiday/holiday.component';
 import { ManagerAllLeaveRequestComponent } from './pages/manager-all-leave-request/manager-all-leave-request.component';
 import { ManagerHolidayComponent } from './pages/manager-holiday/manager-holiday.component';
 
-
+ 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-
+ 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-
+ 
   // 🔐 Dashboard routes with AuthGuard
   { path: 'dashboard/manager', component: ManagerLayoutComponent, canActivate: [AuthGuard], data: { role: 'MANAGER' } },
   { path: 'dashboard/seniorhr', component: SeniorHrLayoutComponent, canActivate: [AuthGuard], data: { role: 'SENIORHR' } },
   { path: 'dashboard/hr', component: HrLayoutComponent, canActivate: [AuthGuard], data: { role: 'HR' } },
   { path: 'dashboard/user', component: UserLayoutComponent, canActivate: [AuthGuard], data: { role: 'USER' } },
-
+ 
   // 📌 Manager Layout Route
   {
     path: '',
@@ -103,7 +103,7 @@ export const routes: Routes = [
       { path: 'manager/engage', component: EngageComponent, canActivate: [AuthGuard] },
       { path: 'manager-add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard] },
       { path: 'manager-all-user', component: AllUserComponent, canActivate: [AuthGuard] },
-      
+     
       { path: 'manager/people', component: ManagerPeopleComponent, canActivate: [AuthGuard] },
       { path: 'manager/helpdesk', component: ManagerHelpdeskComponent, canActivate: [AuthGuard] },
       { path: 'manager/MyWorklife/kudos', component: ManagerKudosComponent, canActivate: [AuthGuard] },
@@ -113,9 +113,10 @@ export const routes: Routes = [
       { path: 'manager/document-centre', component: ManagerDocumentCenterComponent, canActivate: [AuthGuard] },
        { path: 'manager/all-leave-request', component: ManagerAllLeaveRequestComponent, canActivate: [AuthGuard] },
         { path: 'manager/holiday', component: ManagerHolidayComponent, canActivate: [AuthGuard] },
+       
     ]
   },
-
+ 
   // 📌 Senior-Hr Layout Route
   {
     path: '',
@@ -128,7 +129,7 @@ export const routes: Routes = [
       { path: 'senior-generated-salary', component:SeniorhrGenerateSalaryComponent, canActivate: [AuthGuard] },
     ]
   },
-
+ 
   // 📌 Hr Layout Route
   {
     path: '',
@@ -148,10 +149,10 @@ export const routes: Routes = [
       { path: 'hr/people', component: HrPeopleComponent, canActivate: [AuthGuard] },
       { path: 'hr/helpdesk', component: HrHelpdeskComponent, canActivate: [AuthGuard] },
       { path: 'hr/holiday', component: HolidayComponent, canActivate: [AuthGuard] },
-
+ 
     ]
   },
-
+ 
   // 📌 User Layout Route
   {
     path: '',
@@ -171,11 +172,11 @@ export const routes: Routes = [
       { path: 'user/leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
       { path: 'user/leaves/apply-leaves', component: ApplyLeavesComponent, canActivate: [AuthGuard] },
       // { path: 'user/leaves/leaves-status', component: LeavesStatusComponent, canActivate: [AuthGuard] },
-      
-      
+     
+     
     ]
   },
-
+ 
   // Wildcard fallback
   { path: '**', redirectTo: 'login' },
 ];

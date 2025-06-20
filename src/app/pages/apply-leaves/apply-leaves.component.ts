@@ -32,7 +32,7 @@ interface LeaveRequest {
 export class ApplyLeavesComponent {
   leaveForm: FormGroup;
   selectedFile: File | null = null;
-  leaveTypes: LeaveType[] = ['SICK', 'CASUAL', 'PAID', 'UNPAID'];
+  leaveTypes: LeaveType[] = ['SICK', 'CASUAL', 'PAID', 'UNPAID',];
  
   constructor(private fb: FormBuilder, private applyLeavesService: ApplyLeavesService) {
   

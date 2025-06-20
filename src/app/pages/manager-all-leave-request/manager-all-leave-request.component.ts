@@ -4,7 +4,7 @@ import { ApplyLeavesService } from '../../../services/apply-leaves.service';
 
 
 // Inline type definitions
-type LeaveType = 'SICK' | 'CASUAL' | 'PAID' | 'UNPAID';
+type LeaveType = 'SICK' | 'CASUAL' | 'PAID' | 'UNPAID'|'MATERNITY';
 type LeaveStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
 
 interface LeaveRequest {
